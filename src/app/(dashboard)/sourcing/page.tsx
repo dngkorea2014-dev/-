@@ -37,7 +37,7 @@ export default async function SourcingPage({
     prisma.category.findMany({ orderBy: { name: "asc" } }),
     session
       ? prisma.favorite.findMany({
-          where: { userId: session.user.id },
+          where: { userId: session.user?.id ?? "" },
           select: { productId: true },
         })
       : [],

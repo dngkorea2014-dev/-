@@ -82,7 +82,7 @@ export default function NewOrderForm({
 
   function updateItem(i: number, field: keyof OrderItem, value: string | number) {
     const updated = [...items];
-    (updated[i] as Record<string, unknown>)[field] = value;
+    (updated[i] as unknown as Record<string, unknown>)[field] = value;
     if (field === "productId") {
       const p = products.find((pr) => pr.id === value);
       if (p) {
